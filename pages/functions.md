@@ -1,38 +1,38 @@
 ---
 layout: page
-title: "Functions"
+title: "Funções"
 description: ""
 ---
 {% include JB/setup %}
 
 {% include menu/functions.md %}
 
-## Reasons
+## Motivação {#motivacao}
 
-* Readability
-* Maintainability
-* Code separation
-* Modularity
-* Our Comp-Sci teacher told us to
-* To do otherwise would subject us to mockery
+* Legibilidade
+* Mantenabilidade
+* Separação de Código
+* Modularidade
+* Nosso professor de Ciência da Computação disse para fazer assim
+* Se fizéssemos diferente disso zombariam de nós
 
 * * *
 
 
-## Features
+## Características {#caracteristicas}
 
 {% highlight php5 linenos %}
 <?php
-function name() { }
+function nomeDaFuncao() { }
 {% endhighlight %}
 
-* All functions in PHP return a value (null if return is not used).
-* function names are not case-sensitive
-* global $id; // GLOBALS[‘id’];
-* PHP 5 allows default values to be specified for parameters even when they are declared as by-reference (if a variable is not passed in, a new one will be created)
-* In PHP4 Objects were thrown around ByVal.
-* In PHP5 Objects are always passed ByRef unless you explicitly clone it.
-* Is "_" a valid function name?
+* Todas as funções no PHP retornam um valor (nulo caso a cláusula `return` não for usada).
+* Os nomes das funções não fazem distinção entre maiúsculas e minúsculas
+* global $id; // GLOBALS['id'];
+* O PHP 5 permite que sejam definidos valores padrões para os parâmetros mesmo quando eles forem declarados por referência (se uma variável não é passada, uma nova é criada)
+* No PHP4 os objetos eram passados por valor (ByVal).
+* No PHP5 os objetos são sempre passados por referência (ByRef), a menos que, de forma explícita, se faça um clone dele.
+* Seria "_" válido como nome de uma função?
 
 {% highlight php5 linenos %}
 <?php
@@ -47,61 +47,61 @@ int func_num_args(void)
 mixed func_get_arg ( int $arg_num )
 {% endhighlight %}
 
-
 * * *
 
-## By reference
+## Retorno por referência {#retorno_por_referencia}
+
+[http://php.net/manual/pt_BR/language.references.return.php](http://php.net/manual/pt_BR/language.references.return.php)
 
 {% highlight php5 linenos %}
 <?php
-&function name() { }
+function &nomeDaFuncao() { }
 {% endhighlight %}
 
-* allows you to return a variable as the result of the function, instead of a copy
-* is used for things like resources and when implementing the Factory pattern
-* you must return a variable
-* you cannot return an expression by reference
-* you cannot return an empty return statement to force a NULL return value
-
+* permite que, em vez de uma cópia, seja retornada uma variável como resultado da função
+* é usado para coisas como recursos e na implementação do padrão Factory
+* você é obrigado a retornar uma variável
+* você não pode retornar uma expressão por referência
+* você não pode retornar uma declaração `return` vazia para forçar o retorno de um valor NULL
 
 * * *
 
-## Anonymous Functions, closures
+## Funções Anônimas, closures {#funcoes_anonimas_closures}
 
-[http://php.net/manual/en/functions.anonymous.php](http://php.net/manual/en/functions.anonymous.php)
+[http://php.net/manual/pt_BR/functions.anonymous.php](http://php.net/manual/pt_BR/functions.anonymous.php)
 
-Аllow the creation of functions which have no specified name. They are most useful as the value of [callback](http://www.php.net/manual/en/language.pseudo-types.php#language.types.callback) parameters, but they have many other uses.
+Permitem a criação de funções sem nome específico. Elas são úteis principalmente como valores de parâmetros [callback](http://www.php.net/manual/pt_BR/language.pseudo-types.php#language.types.callback), mas elas tem muitos outros usos.
 
-Closures can also be used as the values of variables; PHP automatically converts such expressions into instances of the `Closure` internal class. 
+As closures também podem ser usadas como valores de variáveis; o PHP converte automaticamente essas expressões em instâncias da classe interna `Closure`.
 
 {% highlight php5 linenos %}
 <?php
-$greet = function($name)
+$cumprimentar = function($nome)
 {
-    printf("Hello %s\r\n", $name);
+    printf("Olá %s\r\n", $nome);
 };
 
-$greet('World');
-$greet('PHP');
+$cumprimentar('Mundo');
+$cumprimentar('PHP');
 ?>
 {% endhighlight %}
 
-It is possible to use [func_num_args()](http://www.php.net/manual/en/function.func-num-args.php), [func_get_arg()](http://www.php.net/manual/en/function.func-get-arg.php), and [func_get_args()](http://www.php.net/manual/en/function.func-get-args.php) from within a closure. 
+É possível usar as funções [func_num_args()](http://www.php.net/manual/pt_BR/function.func-num-args.php),  [func_get_arg()](http://www.php.net/manual/pt_BR/function.func-get-arg.php) e [func_get_args()](http://www.php.net/manual/pt_BR/function.func-get-args.php) de dentro de uma closure.
 
-The predefined final class `Closure` was introduced in PHP 5.3.0. It is used for internal implementation of [anonymous functions](http://www.php.net/manual/en/functions.anonymous.php).
-The class has a constructor forbidding the manual creation of the object (issues `E_RECOVERABLE_ERROR`) and the `__invoke` method with the calling magic.
+A classe final predefinida `Closure` foi introduzida no PHP 5.3.0. Ela é usada para a implementação interna das [funções anônimas](http://www.php.net/manual/pt_BR/functions.anonymous.php).
+A classe tem um construtor que proíbe a criação manual do objeto (disparando um `E_RECOVERABLE_ERROR`) e o método `__invoke` via chamada mágica.
 
-May also inherit variables from the parent scope.
+Também podem herdar variáveis do escopo pai.
 
 {% highlight php5 linenos %}
 <?php
 $callback =
-            function ($quantity, $product) use ($tax, &$total)
+            function ($quantidade, $produto) use ($imposto, &$total)
             {
-                $pricePerItem = constant(__CLASS__ . "::PRICE_" .
-                    strtoupper($product));
-                $total += ($pricePerItem * $quantity) * ($tax + 1.0);
+                $precoPorItem = constant(__CLASS__ . "::PRECO_" .
+                    strtoupper($produto));
+                $total += ($precoPorItem * $quantidade) * ($imposto + 1.0);
             };
-        
-        array_walk($this->products, $callback);
+
+        array_walk($this->produtos, $callback);
 {% endhighlight %}
