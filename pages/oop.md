@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Object Oriented Programming"
+title: "Programação Orientada a Objetos"
 description: ""
 ---
 {% include JB/setup %}
@@ -10,12 +10,11 @@ description: ""
 
 * * *
 
-## Facts
+## Fatos
 
-
-* Prior to PHP5 OOP was a hack on top of the array implementation
-* Slower than procedural code, but allows complex tasks to be understood more readily
-* Objects are now dealt with by reference rather than by value, objects must be explicitly cloned to be copied
+* Antes do PHP 5, POO (Programação Orientada a Objetos) era um hack implementado com arrays
+* Mais lento que código procedural, mas permite que tarefas complexas sejam entendidas de forma legível
+* Objetos agora são tratados por referência em vez de por valor, objetos devem ser explicitamente clonados para que sejam copiados
 
 
 * * *
@@ -23,48 +22,47 @@ description: ""
 ## PPP & F
 
 
-* Public – Method or property can be accessed externally
-* Private – Method or property is private to that class and can not be accessed externally
-* Protected – Method or property is private and can also be accessed by extending classes
-* Final – Method can not be overridden by extending classes
+* Public – Método ou propriedade pode ser acessado de fora
+* Private – Método ou propriedade é privada à classe e não pode ser acessada de fora
+* Protected – Método ou propriedade é privado, mas pode ser acessado por classes herdeiras
+* Final – Método não pode ser sobrescrito por classes herdeiras
 
 
 * * *
 
-## Constants, Static
+## Constantes, Membros Estáticos
 
 
-* are accessible as part of a class itself
-* calling static properties using object notation will result in a notice
-* by default the static method or property is considered public
-* Class constants are public, and accessible from all scopes
-* constants can only contain scalar values
-* much cleaner code
-* significantly faster than those declared with the define() construct
+* são acessíveis como parte da própria classe
+* chamar propriedades estáticas usando a notação de objeto resultará em um notice
+* por padrão, métodos ou propriedades estáticos são considerados públicos
+* constantes de classes são públicas e acessíveis de todos escopos
+* constantes podem somente conter valores escalares
+* código muito mais limpo
+* significantemente mais rápidas do que aquelas declaradas com define()
 
 
 * * *
 
-## Interfaces & Abstract Classes
+## Interfaces e Classes Abstratas
 
 
-* New feature added to PHP 5
-* used to create a series of constraints on the base design of a group of classes
-* You must declare a class as abstract so long as it has (or inherits without providing a body) at least one abstract method.
-* a class can only extend one parent class, but it can implement multiple interfaces.
+* Nova funcionalidade adicionada ao PHP 5
+* Utilizadas para criar uma série de restrições no design básico de um grupo de classes
+* Você deve declarar uma classe como abstrata quando esta tiver (ou herdar sem implementar) ao menos um método abstrato
+* Uma classe pode herdar somente uma outra classe, mas pode implementar multiplas interfaces
 
 
 * * *
 
 ## Instanceof
 
-
-Allows you to inspect all of the ancestor classes of your object, as well as any interfaces
+Permite inspecionar todas classes de seu objeto, assim como quaisquer interfaces
 
 
 * * *
 
-## Autoloading
+## Carregamento automático
 
 {% highlight php5 linenos %}
 <?php
@@ -78,12 +76,12 @@ $a = new friend;
 
 * * *
 
-## Special Functions
+## Funções Especiais
 
 
-* <http://php.net/manual/en/language.oop5.magic.php>
+* <http://php.net/manual/pt_BR/language.oop5.magic.php>
 * `__construct()`
-* `__destruct()` - Destruction occurs when all references to an object are gone, and this may not necessarily take place when you expect it or even when you want it to.
+* `__destruct()` - Uma destruição ocorre quando não existem mais referências ao objeto, e isto pode não ocorrer necessariamente quando você espera que ocorra ou mesmo quando você gostaria que ocorresse.
 * `__toString()`
 * `__sleep()`
 * `__wakeup()`
@@ -94,16 +92,16 @@ $a = new friend;
 
 * * *
 
-## Exceptions
+## Exceções
 
 
-* Unified method of error handling
-* Makes proper error handling possible
-* Can be accomplished with try catch blocks or by setting a unified error handler once
-* Try catch blocks take precedence if the error raising code is within them
-* are objects, created (or “thrown”) when an error occurs
-* All unhandled exceptions are fatal.
-* `catch()` portion of the statement requires us to hint the type of Exception
+* Método unificado de tratamento de erros
+* Torna o tratamento adequado de erros possível
+* Pode ser realizado com blocos try catch or definindo um único tratador de erros uma vez
+* Blocos try catch tomam precedência se o código que gera o erro está dentro destes
+* São objetos, criados (ou "lançados") quando um erro ocorre
+* Todas exceções não tratadas são fatais
+* A porção `catch()` requer que digamos o tipo da exceção
 * `callback set_exception_handler ( callback $exception_handler )`
 * `bool restore_exception_handler ( void )`
 
@@ -113,7 +111,7 @@ $a = new friend;
 ## SPL
 
 
-* allow to stack autoloaders on top of each other
+* permite empilhar um autoloader em cima de outro
 * `void spl_autoload ( string $class_name [, string $file_extensions = spl_autoload_extensions() ] )`
 * `string spl_autoload_extensions ([ string $file_extensions ] )`
 * `bool spl_autoload_register ([ callback $autoload_function [, bool $throw = true [, bool $prepend = false ]]] )` - first call to this function replaces the __autoload() call in the engine with its own implementation
@@ -121,11 +119,11 @@ $a = new friend;
 
 * * *
 
-## Reflection API
+## API Reflection
 
 
 * <http://php.net/reflection>
-* provides a manner to obtain detailed information about code
+* provê uma forma de obter informação detalhada sobre um código
 * `$func = new ReflectionFunction($func);`
 * `ReflectionClass`
 * `ReflectionMethod`
@@ -135,13 +133,13 @@ $a = new friend;
 
 * * *
 
-## Type Hinting
+## Indução de Tipo
 
-<http://www.php.net/manual/en/language.oop5.typehinting.php>
+<http://php.net/manual/pt_BR/language.oop5.typehinting.php>
 
 
 * * *
 
 ## Late Static Binding
 
-<http://php.net/manual/en/language.oop5.late-static-bindings.php>
+<http://php.net/manual/pt_BR/language.oop5.late-static-bindings.php>
