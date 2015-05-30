@@ -1,4 +1,4 @@
-* [Reasons](pages/functions.html#reasons)
-* [Features](pages/functions.html#features)
-* [By reference](pages/functions.html#by_reference)
-* [Anonymous Functions, closures](pages/functions.html#anonymous_functions_closures)
+* [Motivação](pages/functions.html#motivacao)
+* [Características](pages/functions.html#caracteristicas)
+* [Retorno por referência](pages/functions.html#retorno_por_referencia)
+* [Funções Anônimas, closures](pages/functions.html#funcoes_anonimas_closures)
