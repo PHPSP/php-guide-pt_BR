@@ -1,110 +1,109 @@
 ---
 layout: page
-title: "Strings & Patterns"
+title: "Strings e Padrões"
 description: ""
 ---
 {% include JB/setup %}
 
 {% include menu/strings-and-patterns.md %}
 
-* * * 
+* * *
 
-## Functions
+## Funções {#funcoes}
 
 
 * `int strlen ( string $string )`
-* `int strpos ( string $haystack , mixed $needle [, int $offset = 0 ] )` - return the position of the search string within the target
+* `int strpos ( string $haystack , mixed $needle [, int $offset = 0 ] )` - retorna a posição do trecho pesquisado ("agulha") dentro de um texto maior ("palheiro")
 * `int stripos ( string $haystack, string $needle [, int $offset] )`
 * `int strrpos ( string $haystack, string $needle [, int $offset] )`
-* `string strstr ( string $haystack , mixed $needle [, bool $before_needle = false ] )` - return the portion of target from the beginning of the first match until the end
+* `string strstr ( string $haystack , mixed $needle [, bool $before_needle = false ] )` - retorna o trecho pesquisado desde o início da primeira ocorrência até o fim
 * `string stristr ( string $haystack, string $needle )`
-* `int strspn ( string $subject , string $mask [, int $start [, int $length ]] )` - returns the number of characters matching the mask
-* `int strcspn ( string $str1 , string $str2 [, int $start [, int $length ]] )` - uses a blacklist and returns the number of non-matching characters
+* `int strspn ( string $subject , string $mask [, int $start [, int $length ]] )` - retorna o número de caracteres correspondentes à máscara
+* `int strcspn ( string $str1 , string $str2 [, int $start [, int $length ]] )` - usa uma lista negra ("blacklist") e retorna os caracteres não encontrados na lista
 * `string setlocale ( int $category, string $locale [, string $...] )`
 * `string str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )`
-* `string strrev ( string $string )` - Reverse a string
+* `string strrev ( string $string )` - Inverte um texto
 
 
 * * *
 
-## Escape Sequences
+## Sequências de escape {#sequencias_de_escape}
 
 
-* `\n` linefeed (LF or 0x0A (10) in ASCII)
-* `\r `carriage return (CR or 0x0D (13) in ASCII)
-* `\t` horizontal tab (HT or 0x09 (9) in ASCII)
-* `\\` backslash
-* `\$` dollar sign
-* `\"` double-quote
-* `\[0-7]{1,3}` the sequence of characters matching the regular expression is a character in octal notation
+* `\n` avanço de linha (LF or 0x0A (10) in ASCII)
+* `\r` retorno de carro (CR or 0x0D (13) in ASCII)
+* `\t` tabulação horizontal (HT or 0x09 (9) in ASCII)
+* `\\` contrabarra
+* `\$` cifrão
+* `\"` aspas duplas
+* `\[0-7]{1,3}` a sequência de caracteres correspondentes a essa expressão regular é um caractere na notação octal
 
 
 * * *
 
-## Matching Strings
+## Correspondência de Strings {#correspondencia_de_strings}
 
 
-* `int strcmp ( string $str1 , string $str2 )` - Returns < 0 if str1 is less than str2 ; > 0 if str1 is greater than str2 , and 0 if they are equal.
-* `int strcasecmp ( string $str1 , string $str2 )` – case insensitive version of strcmp()
+* `int strcmp ( string $str1 , string $str2 )` - Retorna < 0 se str1 é menor que str2 ; > 0 se str1 é maior que str2, e 0 se forem iguais.
+* `int strcasecmp ( string $str1 , string $str2 )` – versão da função strcmp() sem distinção entre maiúsculas e minúsculas
 * `int strncasecmp ( string $str1 , string $str2 , int $len )`
-* `0 == FALSE` and `0 !== FALSE`
+* `0 == FALSE` e `0 !== FALSE`
 
 
 * * *
 
-## Extracting
+## Extração {#extracao}
 
 
-* `string substr ( string $string , int $start [, int $length ] )` - to retrieve a portion of a string
-* Array Syntax
-* The `{}` syntax is depreciated in PHP 5.1 and will produce a warning under `E_STRICT`
-
-
-* * *
-
-## Formatting
-
-
-* sometimes governed by locale considerations
-* `string number_format ( float $number , int $decimals , string $dec_point , string $thousands_sep )` – by default formats a number with the comma as the thousands separator, and no decimal
-* `string money_format ( string $format , float $number )` – only available when the underlying c library `strfmon()` is available (not windows)
+* `string substr ( string $string , int $start [, int $length ] )` - para obter uma porção de uma string
+* Sintaxe de Array
+* A sintaxe `{}` foi descontinuada no PHP 5.1 e irá disparar um erro do tipo `E_STRICT`
 
 
 * * *
 
-## Print Family
+## Formatação {#formatacao}
 
 
-* `int print ( string $arg )` - Outputs arg. (language construct)
-* `int printf ( string $format [, mixed $args [, mixed $... ]] )` - Output a formatted string
-* `string sprintf ( string $format [, mixed $args [, mixed $... ]] )` - Return a formatted string
-* `int vprintf ( string $format , array $args )` - Display array values as a formatted string according to format
-* `mixed sscanf ( string $str , string $format [, mixed &$... ] )` - http://ru2.php.net/sscanf
-* `mixed fscanf ( resource $handle , string $format [, mixed &$... ] )` - Parses input from a file according to a format
+* algumas vezes, deve-se levar em conta sua localização
+* `string number_format ( float $number , int $decimals , string $dec_point , string $thousands_sep )` – por padrão, formata um número usando vírgulas como separador de milhares e nenhum decimal
+* `string money_format ( string $format , float $number )` – apenas disponível quando a biblioteca C `strfmon()` está no sistema (windows não possui)
 
 
 * * *
 
-## Printf Formatting Specifiers
+## Família Print {#familia_print}
 
-* `%` - a literal percent character. No argument is required.
-* `b` - the argument is treated as an integer, and presented as a binary number.
-* `c` - the argument is treated as an integer, and presented as the character with that ASCII value.
-* `d` - the argument is treated as an integer, and presented as a (signed) decimal number.
-* `e` - the argument is treated as scientific notation (e.g. `1.2e+2`).
-* `u` - the argument is treated as an integer, and presented as an unsigned decimal number.
-* `f` - the argument is treated as a float, and presented as a floating-point number (locale aware).
-* `F` - the argument is treated as a float, and presented as a floating-point number (non-locale aware). Available since PHP 4.3.10 and PHP 5.0.3.
-* `o` - the argument is treated as an integer, and presented as an octal number.
-* `s` - the argument is treated as and presented as a string.
-* `x` - the argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).
-* `X` - the argument is treated as an integer and presented as a hexadecimal number (with
-uppercase letters).
+
+* `int print ( string $arg )` - Imprime arg. (construção da linguagem)
+* `int printf ( string $format [, mixed $args [, mixed $... ]] )` - Imprime uma string formatada
+* `string sprintf ( string $format [, mixed $args [, mixed $... ]] )` - Retorna uma string formatada
+* `int vprintf ( string $format , array $args )` - Mostra valores de um array como uma string formatada de acordo com um formato
+* `mixed sscanf ( string $str , string $format [, mixed &$... ] )` - http://php.net/manual/pt_BR/function.sscanf.php
+* `mixed fscanf ( resource $handle , string $format [, mixed &$... ] )` - Interpreta uma entrada de dados via arquivo de acordo com um formato
 
 
 * * *
 
-## Replacement
+## Especificadores de Formatação da função Printf {#especificadores_formatacao_funcao_printf}
+
+* `%` - um caractere literal de porcentagem. Nenhum argumento é necessário.
+* `b` - o argumento é tratado como um inteiro e mostrado como um número binário.
+* `c` - o argumento é tratado como um inteiro e mostrado como o caractere correspondente ao seu valor ASCII.
+* `d` - o argumento é tratado como um inteiro e mostrado como um número decimal (com sinal).
+* `e` - o argumento é tratado como uma notação científica (e.g. `1.2e+2`).
+* `u` - o argumento é tratado como um inteiro e mostrado como um número decimal sem sinal.
+* `f` - o argumento é tratado como um número real (float) e mostrado como um número de ponto flutuante (baseado na localização).
+* `F` - o argumento é tratado como um número real (float) e mostrado como um número de ponto flutuante (não baseado na localização). Disponível desde as versões do PHP 4.3.10 e do PHP 5.0.3.
+* `o` - o argumento é tratado como um inteiro e mostrado como um número octal.
+* `s` - o argumento é tratado e mostrado como uma string.
+* `x` - o argumento é tratado como um inteiro e mostrado como um número hexadecimal (em letras minúsculas).
+* `X` - o argumento é tratado como um inteiro e mostrado como um número hexadecimal (em letras maiúsculas).
+
+
+* * *
+
+## Substituição {#substituicao}
 
 * `mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )`
 * `mixed str_ireplace ( mixed $search, mixed $replace, mixed $subject [, int &$count] )`
@@ -114,38 +113,40 @@ uppercase letters).
 
 * * *
 
-## PCRE(Perl Compatible Regular Expressions) – Meta Characters
+## PCRE – Meta Caracteres {#pcre_meta_caracteres}
 
-* `\d` Digits 0-9
-* `\D` Anything not a digit
-* `\w` Any alphanumeric character or an underscore (_)
-* `\W` Anything not an alphanumeric character or an underscore
-* `\s` Any whitespace (spaces, tabs, newlines)
-* `\S` Any non-whitespace character
-* `.` Any character except for a newline
-* `?` Occurs 0 or 1 time
-* `*` Occurs 0 or more times
-* `+` Occurs 1 or more times
-* `{n}` Occurs exactly n times
-* `{,n}` Occurs at most n times
-* `{m,}` Occurs m or more times
-* `{m,n}` Occurs between m and n times
+PCRE (Expressões Regulares Compatíveis com Perl, do inglês, Perl Compatible Regular Expressions).
+
+* `\d` Dígitos 0-9
+* `\D` Tudo que não seja um dígito
+* `\w` Qualquer caractere alfanumérico ou um underline (_)
+* `\W` Qualquer caractere que não seja alfanumérico ou um underline
+* `\s` Qualquer espaço em branco (espaços, tabulações, quebras de linha)
+* `\S` Qualquer caractere que não seja um espaço em branco
+* `.` Qualquer caractere exceto uma quebra de linha
+* `?` Ocorre nenhuma (0) ou uma (1) vez
+* `*` Ocorre nenhuma (0) ou mais vezes
+* `+` Ocorre uma (1) ou mais vezes
+* `{n}` Ocorre exatamente n vezes
+* `{,n}` Ocorre no máximo n vezes
+* `{m,}` Ocorre m ou mais vezes
+* `{m,n}` Ocorre entre m e n vezes
 
 
 * * *
 
-## PCRE – Pattern Modifiers
+## PCRE – Modificadores de Padrão {#pcre_modificadores_de_padrao}
 
 
-* `i` – Case insensitive search
-* `m` – Multiline, $ and ^ will match at newlines
-* `s` – Makes the dot metacharacter match newlines
-* `x` – Allows for commenting
-* `U` – Makes the engine un-greedy
-* `u` – Turns on UTF8 support
-* `e` – Matched with preg_replace() allows you to call
+* `i` – Busca sem distinção entre maiúsculas e minúsculas
+* `m` – Multilinha, $ e ^ irão "casar" com quebras de linhas
+* `s` – Faz com que o metacaractere ponto "case" com quebras de linha
+* `x` – Permite comentários
+* `U` – Torna o motor de busca "não-guloso"
+* `u` – Liga o suporte ao UTF8
+* `e` – Permite executar as correspondências feitas com a função preg_replace() (marcado como obsoleto no PHP 5.5.0 e removido no PHP 7. Como alternativa, usar preg_replace_callback())
 
-* `int preg_match ( string $pattern , string $subject [, array &$matches [, int $flags [, int $offset ]]] )` – Returns the number of matches found by a given search string
+* `int preg_match ( string $pattern , string $subject [, array &$matches [, int $flags [, int $offset ]]] )` – Retorna o número de correspondências encontradas com base num texto de busca
 * `int preg_match_all ( string $pattern, string $subject, array &$matches [, int $flags [, int $offset]] )`
 * `mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &$count ]] )`
 * `array preg_split ( string $pattern , string $subject [, int $limit = -1 [, int $flags = 0 ]] )`
@@ -153,25 +154,25 @@ uppercase letters).
 
 * * *
 
-## HEREDOC and NOWDOC
+## HEREDOC e NOWDOC {#heredoc_e_nowdoc}
 
-[http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc)
+[http://php.net/manual/pt_BR/language.types.string.php#language.types.string.syntax.heredoc](http://php.net/manual/pt_BR/language.types.string.php#language.types.string.syntax.heredoc)
 
-As of PHP 5.3.0, it's possible to initialize static variables and class properties/constants using the Heredoc syntax.
+A partir do PHP 5.3.0, é possível inicializar variáveis estáticas além de propriedades e constantes de uma classe usando a sintaxe Heredoc.
 
-PHP 5.3.0 also introduces the possibility for Heredocs to use double quotes in declarings.
+O PHP 5.3.0 também introduz a possibilidade de que os Heredocs usem aspas duplas em suas declarações.
 
-Heredocs can not be used for initializing class properties. Since PHP 5.3, this limitation is valid only for heredocs containing variables.
+Os Heredocs, em geral, não podiam ser utilizados para inicializar propriedades de classe. Desde o PHP 5.3 essa limitação é válida apenas para os heredocs que contenham variáveis.
 
 {% highlight php5 linenos %}
 <?php
 $str = <<<EOD
-Example of string
-spanning multiple lines
-using heredoc syntax.
+Exemplo de um texto
+apresentado em múltiplas linhas
+utilizando a sintaxe heredoc.
 EOD;
 
-/* More complex example, with variables. */
+/* Exemplo mais complexo, com variáveis. */
 class foo
 {
     var $foo;
@@ -185,21 +186,20 @@ class foo
 }
 
 $foo = new foo();
-$name = 'MyName';
+$nome = 'MeuNome';
 
 echo <<<EOT
-My name is "$name". I am printing some $foo->foo.
-Now, I am printing some {$foo->bar[1]}.
-This should print a capital 'A': \x41
+Meu nome é "$nome". Estou imprimindo algum $foo->foo.
+Agora, estou imprimindo algum {$foo->bar[1]}.
+Deveria ser impressa uma letra 'A' maiúscula: \x41
 EOT;
 ?>
 {% endhighlight %}
 
-[http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.nowdoc](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.nowdoc)
+[http://php.net/manual/pt_BR/language.types.string.php#language.types.string.syntax.nowdoc](http://php.net/manual/pt_BR/language.types.string.php#language.types.string.syntax.nowdoc)
 
-Unlike heredocs, nowdocs can be used in any static data context. The typical example is initializing class properties or constants
+Diferente dos heredocs, os nowdocs podem ser usados em qualquer contexto de dados estáticos. O exemplo típico é a inicialização de propriedades de classe ou constantes.
 
-A nowdoc is specified similarly to a heredoc, but no parsing is done inside a nowdoc.
+Um nowdoc é especificado de forma similar a um heredoc, mas nenhum tipo de interpretação é feita dentro de um nowdoc.
 
-A nowdoc is identified with the same `<<<` sequence used for heredocs, but the identifier which follows is enclosed in single quotes, e.g. `<<<'EOT'`. All the rules for heredoc identifiers also apply to nowdoc identifiers, especially those regarding the appearance of the closing identifier. 
-
+Um nowdoc começa com a mesma sequência `<<<` usada para os heredocs, mas o identificador é embutido em aspas simples, e.g. `<<<'EOT'`. Todas as regras dos identificadores heredoc também se aplicam aos nowdoc, especialmente aquelas referentes à aparência do identificador de fechamento.
