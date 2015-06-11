@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Security"
+title: "Segurança"
 description: ""
 ---
 {% include JB/setup %}
@@ -9,60 +9,61 @@ description: ""
 
 * * *
 
-## Levels
+## Níveis
 
 
-* Web Server level
-* Data base level
-* PHP itself
+* Servidor Web
+* Base de dados
+* O próprio PHP
 
 
 * * *
 
-## Concepts
+## Conceitos
 
 
-* "with great power comes great responsibility" (yeah)
-* Defense in Depth - plan for failure; applications remain more resistant over time;
-* Principle of Least Privilege
-* Terms: Validation vs Escaping
+* "Com grandes poderes vem grandes responsabilidades" (yeah)
+* Defense in Depth - planeje falhas; aplicações permanecem mais resistentes com o tempo;
+* Princípio do Privilégio Mínimo
+* Termos: Validação vs "Escapar" 
    * Validation or Filtering is the process by which you subject data to a series of rules, either it passes (validates) or does not
-   * Escaping is the process by which you prepare data for a specific resource by “escaping” certain portions of the data to avoid confusion of instruction and data
+   * Validação ou Filtragem é o processo pelo qual você sujeita um dado a uma série de regras, este dado passará (será válido) ou não
+   * "Escapar" - do inglês Escape - é o processo pelo qual você prepara um dado para um recurso específico, "escapando" algumas partes do dado para evitar confusão entre o que são instruções ou dados
 
 
 * * *
 
-## Validate Input
+## Valide Entradas
 
 
-One of three things can be said about received data:
+Uma das três coisas pode ser dita sobre dados recebidos:
 
-* It is valid, the user entered the data you want, in the format you desire
-* It is invalid because the user either did not comply or did not understand the rules on the data you requested (eg. Poorly formatted phone number)
-* It is invalid because the user is attempting to compromise your system
+* Ele é válido, o usuário enviou o dado que você quer, no formato em que você deseja
+* Ele é inválido porque o usuário não seguiu ou entendeu as regras sobre o dado que você solicitou (i.e. Número telefonico mal formatado)
+* Ele é inválido porque o usuário está tentando comprometer seu sistema
 
-* Data from the end user can not be trusted
-* Validate data first don’t save it for last
-* Fail early, tell the user what went wrong
+* Dados vindos do usuário final não podem ser confiados
+* Valide os dados primeiro, não deixe a validação por ultimo
+* Diga ao usuário o que ocorreu de errado o quanto antes
 * Whitelist vs Blacklist
 
 
 * * *
 
-## Functions
+## Funções
 
 
-* `bool ctype_alnum ( string $text )` - Check for alphanumeric character(s)
-* `ctype_alpha` - Check for alphabetic character(s)
-* `ctype_cntrl` - Check for control character(s)
-* `ctype_digit` - Check for numeric character(s)
-* `ctype_graph` - Check for any printable character(s) except space
-* `ctype_lower` - Check for lowercase character(s)
-* `ctype_print` - Check for printable character(s)
-* `ctype_punct` - Check for any printable character which is not whitespace or an alphanumeric character
-* `ctype_space` - Check for whitespace character(s)
-* `ctype_upper` - Check for uppercase character(s)
-* `ctype_xdigit` - Check for character(s) representing a hexadecimal digit
+* `bool ctype_alnum ( string $text )` - Verifica caracteres alfanuméricos
+* `ctype_alpha` - Verifica caracteres alfabéticos
+* `ctype_cntrl` - Verifica caracteres de controle
+* `ctype_digit` - Verifica caracteres numéricos
+* `ctype_graph` - Verifica por quaisquer caracteres possíveis de serem impressos, exceto espaço
+* `ctype_lower` - Verifica caracteres em caixa baixa (letras minúsculas)
+* `ctype_print` - Verifica por caracteres possíveis de serem impressos
+* `ctype_punct` - Verifica por quaisquer caracteres que possam ser impressos, que não sejam espaço em branco ou alfanumérico
+* `ctype_space` - Verifica caracteres de espaço de em branco
+* `ctype_upper` - Verifica caracteres em caixa alta (letras maiúsculas)
+* `ctype_xdigit` - Verifica caracteres em hexadecimal
 
 
 * * *
@@ -70,10 +71,10 @@ One of three things can be said about received data:
 ## Register Globals
 
 
-* Register globals was great, when you were learning, and no one else saw your applications
-* on it’s own is not a security risk; combined with sloppy coding is the problem
-* pre-initilize all your variables
-* Code with E_STRICT` enabled
+* Register Globals era ótima, quando você estava aprendendo e mais ninguém via suas aplicações
+* Sozinha não seria um risco à segurança; Combinada com códigos mal cuidados torna-se um problema
+* Inicialize de antemão todas suas variáveis
+* Codifique com o modo `E_STRICT` habilitado
 
 
 * * *
@@ -81,10 +82,10 @@ One of three things can be said about received data:
 ## Magic Quotes
 
 
-* automatically escapes quote characters, backslash and null
-* Gone completely in PHP 5.4
-* Disabled by default in PHP5
-* A pain in the neck, you end up with code like this:
+* Escapa automaticamente caracteres de aspas, barra invertida e null
+* Depreciada no PHP 5.4
+* Desabilitada por padrão no PHP 5
+* Um pé no saco, você vai acabar com um código parecido com isto:
 
 {% highlight php5 linenos %}
 <?php
@@ -97,16 +98,16 @@ $string = stripslashes($string);
 
 * * *
 
-## Escaping
+## Escapando (Escaping)
 
 
-* `string strip_tags ( string $str [, string $allowable_tags ] )` – Remove anything that looks like an HTML tag from a string
-* `string htmlentities ( string $string [, int $quote_style = ENT_COMPAT [, string $charset [, bool $double_encode = true ]]] )` – Convert any character that has a specific HTML entity into it
-   * `ENT_COMPAT` - convert double-quotes and leave single-quotes alone
-   * `ENT_QUOTES` - convert both double and single quotes
-   * `ENT_NOQUOTES` - leave both double and single quotes unconverted
-* `string htmlspecialchars ( string $string [, int $quote_style = ENT_COMPAT [, string $charset [, bool $double_encode = true ]]] )` – Convert `&, “, ‘, <, >` into their entities
-* escape your data or use prepared statements
+* `string strip_tags ( string $str [, string $allowable_tags ] )` – Remove qualquer coisa que pareça com uma tag HTML de uma string
+* `string htmlentities ( string $string [, int $quote_style = ENT_COMPAT [, string $charset [, bool $double_encode = true ]]] )` – Converte qualquer caractere que contenha uma entidade HTML específica
+   * `ENT_COMPAT` - converte aspas duplas e não altera aspas simples
+   * `ENT_QUOTES` - converte aspas duplas e simples
+   * `ENT_NOQUOTES` - não converte as simples ou duplas
+* `string htmlspecialchars ( string $string [, int $quote_style = ENT_COMPAT [, string $charset [, bool $double_encode = true ]]] )` – Converte `&, “, ‘, <, >` em suas respectivas entidades
+* Escape seus dados ou use "prepared statements"
 
 
 * * *
@@ -114,8 +115,8 @@ $string = stripslashes($string);
 ## XSS
 
 
-* attacker injects code into your page that contains code that re-writes the page to do something nefarious
-* can be prevented through proper escaping and data validation
+* o agressor injeta código em sua página que contém um código que reescreve a página para fazer algo malicioso
+* pode ser prevenido escapando e validando corretamente os dados
 
 
 * * *
@@ -123,81 +124,80 @@ $string = stripslashes($string);
 ## CSRF
 
 
-* site exploits another sites persistent user trust relationship to make something happen
+* um site explora a confiança do usuário em outro site para fazer algo acontecer
 * iFrames
 
 
 * * *
 
-## Sessions
+## Sessões
 
 
-* Basically, combine cookies containing a session ID with a local(ish) data store corresponding to that session id
-* If the session id is compromised, or the data store is not secure (/tmp on a shared machine) sessions are still vulnerable to attack
+* Basicamente, combina cookies contendo um ID de sessão com um armazenamento local correspondente àquele ID de sessão
+* Se o ID de sessão está comprometido, ou o armazenamento de dados não for seguro (/tmp numa máquina compartilhada), as sessões ainda são vulneráveis à ataques
+
+* * *
+
+## Fixação de Sessões
+
+
+* um agressor engana um usuário a clicar em um link que fornece o ID de sessão, ou um usuário inocente cola um link contendo seu ID de sessão para alguém que não deveria o ter
+* não permita que IDs de sessão venham por GET, e gere novamente IDs de sessão quando um usuário se autentica
 
 
 * * *
 
-## Session Fixation
+## Espoliação de Sessão
 
 
-* either an attacker tricks another user into clicking on a link providing a session id, or an innocent user pastes a link containing their session id to someone they shouldn’t have
-* don’t allow session IDs to come in over GET, and regenerate session ids when a user authenticates themself
-
-
-* * *
-
-## Session Hijacking
-
-
-* Session IDs are very random
-* To defend, implement some browser fingerprinting
+* IDs de sessão são aleatórios
+* Para defender-se, implemente algum tipo de identificação de navegador
 
 
 * * *
 
-## Command Injection
+## Injeção de Comandos
 
 
-* PHP provides great power with the `exec()`, `system()` and `passthru()` functions, aswell as the `‘` (backtick) operator
+* O PHP fornece grandes poderes com as funções `exec()`, `system()` and `passthru()`, assim como o operador `\`` (acento grave)
 * `string escapeshellcmd ( string $command )`
 * `string escapeshellarg ( string $arg )`
 
 
 * * *
 
-## Security Settings
+## Configurações de Segurança
 
 
-* `open_basedir` – Restricts PHP’s file acces to one or more specified directores
-* `safe_mode` – limits file access based on uid/gid of running script and file to be accessed. Slower, doesn’t work well with uploaded files.
+* `open_basedir` – Restringe o acesso a arquivos pelo PHP à um ou mais diretórios especificados
+* `safe_mode` – limita o acesso a arquivos baseado no uid/gid do script em execução e o arquivo a ser acessado. Mais lento, não funciona bem com arquivos por upload.
 * `disable_functions`
 * `disable_classes`
 
 
 * * *
 
-## Encryption, Hashing algorithms
+## Encriptação, algorítmos de hash
 
-* <http://php.net/manual/en/function.crypt.php>
-* <http://php.net/manual/en/function.md5.php>
+* <http://php.net/manual/pt_BR/function.crypt.php>
+* <http://php.net/manual/pt_BR/function.md5.php>
 * <http://php.net/mcrypt>
 * <http://php.net/mhash>
 
 
 * * *
 
-## File uploads
+## Upload de arquivos
 
-1. Assign 775 permission to upload folder
-2. Check the file using PHP functions (if its photo upload, for example)
-3. Disable directory indexes and script exection (using .htaccess or server settings)
-4. Place the upload folder outside WWW root.
+1. Defina permissão 755 para a pasta de upload
+2. Verifique o arquivo usando funções PHP (se é um upload de foto, por exemplo)
+3. Desabilite índices de diretórios e execução de scripts (utilizando .htaccess ou configurações de servidor)
+4. Deixe a pasta de upload fora da raiz do site
 
 
 * * *
 
-## Data storage
+## Armazenamento de dados
 
 
 
@@ -205,4 +205,4 @@ $string = stripslashes($string);
 
 ## SSL
 
-<http://php.net/manual/en/book.openssl.php>
+<http://php.net/manual/pt_BR/book.openssl.php>
