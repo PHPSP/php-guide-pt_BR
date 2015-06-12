@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Design And Theory"
+title: "Design e Teoria"
 description: ""
 ---
 {% include JB/setup %}
@@ -10,7 +10,7 @@ description: ""
 
 * * *
 
-## To look
+## Para ver
 
 
 * [SPL](http://php.net/spl) (standard PHP Library)
@@ -23,45 +23,44 @@ description: ""
 ## SPL
 
 
-* Standard PHP Library
-* Extension available and compiled by default in PHP 5
-* Improved in PHP 5.1
+* Standard PHP Library (Biblioteca Padrão do PHP)
+* Extensões disponiveis e compiladas no PHP 5 por padrão
+* Melhorias no PHP 5.1
 * <http://www.php.net/~helly/php/ext/spl/>
-* The `ArrayAccess` interface
+* O `ArrayAccess` interface
    * `function offsetSet($offset, $value);`
    * `function offsetGet($offset);`
    * `function offsetUnset($offset);`
    * `function offsetExists($offset);`
-* The `Iterator` interface
+* O `Iterator` interface
    * `function current();`
    * `function next();`
    * `function rewind();`
    * `function key();`
    * `function valid();`
-* The `SeekableIterator` interface
+* O `SeekableIterator` interface
    * `Iterator`
    * `function seek($index);`
-* The `RecursiveIterator` interface
+* O `RecursiveIterator` interface
    * `Iterator`
    * `public RecursiveIterator getChildren ( void )`
    * `public bool hasChildren ( void )`
-* The `FilterIterator`
+* O `FilterIterator`
 
 
 * * *
 
-## Code Reuse
+## Reutilização de Codigo
 
 
-* We solve the same problems every day
-* We solve the same problems as our neighbor every day
-* We solve the same problems on every project
-* Code Reuse allows us to cut development time while increasing code quality
-
+* Nos solucionamos os mesmos problemas todos os dias
+* Nos solucionamos os mesmos problemas que nosos visinhos todos os dias
+* Nos solucionamos os mesmos problemas em todos projetos
+* Reutilização de Codigo nos permite reduzir o tempo de desenvolvimento e aumentar a qualidade do codigo
 
 * * *
 
-## Design Patterns
+## Design Patterns (Padrões de Projeto)
 
 
 * present a well defined solution to common problems
