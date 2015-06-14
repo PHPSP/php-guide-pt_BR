@@ -24,52 +24,52 @@ description: ""
 
 
 * Standard PHP Library (Biblioteca Padrão do PHP)
-* Extensões disponiveis e compiladas no PHP 5 por padrão
+* Extensões disponíveis e compiladas no PHP 5 por padrão
 * Melhorias no PHP 5.1
 * <http://www.php.net/~helly/php/ext/spl/>
-* O `ArrayAccess` interface
+* `ArrayAccess` interface
    * `function offsetSet($offset, $value);`
    * `function offsetGet($offset);`
    * `function offsetUnset($offset);`
    * `function offsetExists($offset);`
-* O `Iterator` interface
+* `Iterator` interface
    * `function current();`
    * `function next();`
    * `function rewind();`
    * `function key();`
    * `function valid();`
-* O `SeekableIterator` interface
+* `SeekableIterator` interface
    * `Iterator`
    * `function seek($index);`
-* O `RecursiveIterator` interface
+* `RecursiveIterator` interface
    * `Iterator`
    * `public RecursiveIterator getChildren ( void )`
    * `public bool hasChildren ( void )`
-* O `FilterIterator`
+* `FilterIterator`
 
 
 * * *
 
-## Reutilização de Codigo
+## Reutilização de Código
 
 
 * Nos solucionamos os mesmos problemas todos os dias
-* Nos solucionamos os mesmos problemas que nosos visinhos todos os dias
-* Nos solucionamos os mesmos problemas em todos projetos
-* Reutilização de Codigo nos permite reduzir o tempo de desenvolvimento e aumentar a qualidade do codigo
+* Nos solucionamos os mesmos problemas que nossos vizinhos todos os dias
+* Nos solucionamos os mesmos problemas a cada projetos
+* Reutilização de Código permite a redução no tempo de desenvolvimento enquanto aumenta a qualidade do código
 
 * * *
 
 ## Design Patterns (Padrões de Projeto)
 
 
-* present a well defined solution to common problems
-* provide a common language for developers
+* apresenta soluções bem definidas para problemas comuns
+* fornece uma linguagem comum para os desenvolvedores
 
 
 * * *
 
-## Factory
+## Factory (Fabrica)
 
 
 * is used to provide a common interface to a series of classes with identical functionality but different internals (think data storage, varying shipping systems, payment processing)
