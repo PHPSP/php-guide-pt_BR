@@ -7,12 +7,12 @@ description: ""
 
 {% include menu/io.md %}
 
-* * * 
+* * *
 
-## Files
+## Arquivos
 
 
-Provide a simple temporary to permanent data store.
+Fornecem um armazenamento simples, temporário ou permanente, para dados.
 
 * `string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen = -1 ]]]] )`
 * `int file_put_contents ( string $filename , mixed $data [, int $flags = 0 [, resource $context ]] )`
@@ -29,148 +29,148 @@ Provide a simple temporary to permanent data store.
 * `bool feof ( resource $handle )`
 
 
-* * * 
+* * *
 
-### Constants
-
-
-* `__LINE__`  - The current line number of the file.
-* `__FILE__` The full path and filename of the file.
-* `__FUNCTION__` The function name. (Added in PHP 4.3.0) (case-sensitive)
-* `__CLASS__` The class name. (Added in PHP 4.3.0) (case-sensitive)
-* `__METHOD__` The class method name. (Added in PHP 5.0.0) (case-sensitive)
+### Constantes
 
 
-* * * 
-
-### File Modes
-
-
-* `r` Open for reading only; place the file pointer at the beginning of the file.
-* `r+` Open for reading and writing; place the file pointer at the beginning of the file.
-* `w` Open for writing only; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.
-* `w+` Open for reading and writing; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.
-* `a` Open for writing only; place the file pointer at the end of the file. If the file does not exist, attempt to create it.
-* `a+` Open for reading and writing; place the file pointer at the end of the file. If the file does not exist, attempt to create it.
-* `x` Create and open for writing only; place the file pointer at the beginning of the file. If the file already exists, the fopen() call will fail by returning FALSE and generating an error of level `E_WARNING`. If the file does not exist, attempt to create it.
-* `x+` Create and open for reading and writing; place the file pointer at the beginning of the file. If the file already exists, the fopen() call will fail by returning FALSE and generating an error of level `E_WARNING`.
+* `__LINE__`  A linha atual do arquivo.
+* `__FILE__` O caminho completo com o nome do arquivo.
+* `__FUNCTION__` O nome da função. (Adicionada no PHP 4.3.0) (diferencia maiúsculas e minúsculas)
+* `__CLASS__` O nome da classe. (Adicionada no PHP 4.3.0) (diferencia maiúsculas e minúsculas)
+* `__METHOD__` O nome do método da classe. (Adicionada no PHP 5.0.0) (diferencia maiúsculas e minúsculas)
 
 
-* * * 
+* * *
 
-### Locks
+### Modos dos Arquivos (File Modes) {#modos_dos_arquivos}
+
+
+* `r` Abre apenas para leitura; coloca o ponteiro do arquivo no início dele.
+* `r+` Abre para leitura e gravação; coloca o ponteiro do arquivo no início dele.
+* `w` Abre apenas para gravação; coloca o ponteiro do arquivo no início dele, apagando todo seu conteúdo. Se o arquivo não existir, tenta criá-lo.
+* `w+` Abre para leitura e gravação, coloca o ponteiro do arquivo no início dele, apagando todo seu conteúdo. Se o arquivo não existir, tenta criá-lo.
+* `a` Abre apenas para gravação; coloca o ponteiro do arquivo no fim dele. Se o arquivo não existir, tenta criá-lo.
+* `a+` Abre para leitura e gravação; coloca o ponteiro do arquivo no fim dele. Se o arquivo não existir, tenta criá-lo.
+* `x` Cria e abre apenas para gravação; coloca o ponteiro do arquivo no início dele. Se o arquivo já existir, a execução da função fopen() falhará retornando FALSE e gerando um erro de nível `E_WARNING`. Se o arquivo não existir, tenta criá-lo.
+* `x+` Cria e abre para leitura e gravação; coloca o ponteiro do arquivo no início dele. Se o arquivo já existir, a execução da função fopen() falhará retornando FALSE e gerando um erro de nível `E_WARNING`.
+
+* * *
+
+### Bloqueios
 
 
 * `bool flock ( resource $handle , int $operation [, int &$wouldblock ] )`
-   * `LOCK_SH` - place Shared lock
-   * `LOCK_EX` - place Exclusive (write) Lock      * `LOCK_UN` - release lock
-* Placing and removing locks can inhibit performance as traffic increases
+   * `LOCK_SH` - aplica um bloqueio compartilhado (Shared)
+   * `LOCK_EX` - aplica um bloqueio exclusivo/escrita (Exclusive)
+   * `LOCK_UN` - libera um bloqueio
+* A aplicação e remoção de bloqueios pode impactar a performance a medida que se aumenta o tráfego
 
 
-* * * 
+* * *
 
-### File Functions
+### Funções de Arquivos {#funcoes_de_arquivos}
 
 
-#### Access controll 
+#### Controle de Acesso
 
-Note that the results of a call to any of these functions will be cached, so that two calls to a given function on the same stream resource and during the same script will return the same value, regardless of whether the underlying resource has changed in the meantime.
+Perceba que os resultados de uma chamada para qualquer uma dessas funções serão colocados em cache, dessa forma duas chamadas para determinada função na mesma cadeia de recursos e dentro do mesmo script retornarão o mesmo valor, não importando se o recurso tiver sido mudado nesse meio tempo.
 
-* `is_dir($path);` //Returns if path is a directory
-* `is_executable($path);` //Returns if path is an executable
-* `is_file($path);` //Returns if path exists and is a regular file
-* `is_link($path);` //Returns if path exists and is a symlink
-* `is_readable($path);` //Returns if path exists and is readable
-* `is_writable($path);` //Returns if path exists and is writable
+* `is_dir($path);` // Retorna se o caminho é um diretório
+* `is_executable($path);` // Retorna se o caminho é executável
+* `is_file($path);` // Retorna se o caminho existe e é um arquivo comum
+* `is_link($path);` // Retorna se o caminho existe e é um link simbólico
+* `is_readable($path);` // Retorna se o caminho existe e se pode ser lido
+* `is_writable($path);` // Retorna se o caminho existe e se pode ser gravado
 * `bool is_uploaded_file ( string $filename )`
-* `bool file_exists ( string $filename )` - Checks whether a file or directory exists.
+* `bool file_exists ( string $filename )` - Verifica se o arquivo ou o diretório existe.
 * `void clearstatcache ([ bool $clear_realpath_cache = false [, string $filename ]] )`
 
 
 #### Links
 
 
-* `bool link ( string $target, string $link )` - Create a hard link.
-* `bool symlink ( string $target, string $link )` - creates a symbolic link to the existing target with the specified name link.
-* `string readlink ( string $path )` - Returns the target of a symbolic link.
+* `bool link ( string $target, string $link )` - Cria um hardlink.
+* `bool symlink ( string $target, string $link )` - Cria um link simbólico para o objeto existente com o nome especificado para o link.
+* `string readlink ( string $path )` - Retorna o objeto referente ao link simbólico.
 
 
 * `float disk_free_space ( string $directory )`
 * `bool move_uploaded_file ( string $filename, string $destination )`
 * `int fseek ( resource $handle, int $offset [, int $whence] )`
-   * `SEEK_SET` (start from the beginning of the file)
-   * `SEEK_CUR` (start from the current position)
-   * `SEEK_END` (start from the end of the file)
-* `int ftell ( resource $handle )` - gives undefined results for append-only streams (opened with “a” flag).
+   * `SEEK_SET` (inicia no começo do arquivo)
+   * `SEEK_CUR` (inicia na posição atual)
+   * `SEEK_END` (inicia no final do arquivo)
+* `int ftell ( resource $handle )` - retorna resultados indefinidos quando o stream for apenas para acréscimo (aberta com a opção "a").
 * `bool ftruncate ( resource $handle, int $size )`
 * `array fgetcsv ( resource $handle [, int $length [, string $delimiter [, string $enclosure]]] )`
 * `int fputcsv ( resource $handle, array $fields [, string $delimiter [, string $enclosure]] )`
-* `int readfile ( string $filename [, bool $use_include_path [, resource $context]] )` - Outputs a file.
-* `int fpassthru ( resource $handle )` - Output all remaining data on a file pointer
+* `int readfile ( string $filename [, bool $use_include_path [, resource $context]] )` - Retorna um arquivo.
+* `int fpassthru ( resource $handle )` - Retorna todos os dados remanescentes em um ponteiro de arquivo
 * `array file ( string $filename [, int $flags [, resource $context]] )`
 * `string implode ( string $glue, array $pieces )`
 * `string basename ( string $path [, string $suffix] )`
-* `string realpath ( string $path )` - Returns canonicalized absolute pathname.
+* `string realpath ( string $path )` - Retorna o caminho absoluto de forma canônica.
 * `bool chdir ( string $directory )`
 * `string getcwd ( void )`
 * `bool unlink ( string $filename [, resource $context] )`
-* `bool rename ( string $oldname, string $newname [, resource $context] )` - Attempts to rename oldname to newname.
-* `bool rmdir ( string $dirname [, resource $context] )` - Attempts to remove the directory named by dirname. The directory must be empty, and the relevant permissions must permit this.
+* `bool rename ( string $oldname, string $newname [, resource $context] )` - Tenta renomear um nome antigo para um novo nome.
+* `bool rmdir ( string $dirname [, resource $context] )` - Tenta remover um diretório. O diretório precisa estar vazio e as permissões relevantes devem permitir isso.
 * `bool mkdir ( string $pathname [, int $mode [, bool $recursive [, resource $context]]] )`
-* `string readdir ( resource $dir_handle )` - Read entry from directory handle.
-* `array scandir ( string $directory [, int $sorting_order [, resource $context]] )` - Returns an array of files and directories from the directory.
-* `int filectime (string filename)` / `int filemtime (string filename)` - The "last changed time" differs from the "last modified time" in that the last changed time refers to any change in the file’s inode data, including changes to permissions, owner, group, or other inode-specific information, whereas the last modified time refers to changes to the file’s content (specifically, byte size).
+* `string readdir ( resource $dir_handle )` - Lê os dados de um manipulador de diretórios.
+* `array scandir ( string $directory [, int $sorting_order [, resource $context]] )` - Retorna um array de arquivos e diretórios com base no diretório indicado.
+* `int filectime (string filename)` / `int filemtime (string filename)` - "Last changed time" (data da última alteração) é diferente de "last modified time" (data da última modificação). A data da última alteração se refere as mudanças nos dados do inode do arquivo, incluindo mudanças em permissões, proprietário, grupo e outras informações específicas de inodes. Já a data da última modificação se refere as alterações no conteúdo do arquivo (mais especificamente no seu tamanho em bytes).
 * `int fileperms (string filename)`
 * `string tempnam ( string $dir , string $prefix )`
 
 
-* * * 
+* * *
 
 ## Streams
 
 
-* Are the way that PHP handles working with network resources
-* Whenever you open up a file PHP creates a stream in the background
+* É com eles que o PHP faz a manipulação de recursos de rede
+* Sempre que você abre um arquivo, o PHP abre um stream em segundo plano
 
 
-* * * 
+* * *
 
-### Types
-
-
-* provides access to a certain type of stream resource (built-in)
-   * `php.*` — standard PHP input/output
-   * `file` — standard file access
-   * `http` — access to remote resources via HTTP
-   * `ftp` — access to remote resources via FTP
-   * `compress.zlib` — access to compressed data stream using the zlib compression library.
-* stream filters - extensions that can be “installed” on top of the existing one to form chains of filters that act cumulatively on a data stream
-   * `string.rot13` — encodes the data stream using the ROT-13 algorithm
-   * `string.toupper` — converts strings to uppercase
-   * `string.tolower` — converts strings to lowercase
-   * `string.strip_tags` — removes XML tags from a stream
-   * `convert.*` — a family of filters that converts to and from the base64 encoding.
-   * `mcrypt.*` — a family of filters that encrypts and decrypts data according to multiple algorithms
-   * `zlib.*` — a family of filters that compressed and decompresses data using the zlib compression library
+### Tipos
 
 
-* * * 
+* fornecem acesso a certos tipos de recursos stream (embutidos no PHP)
+   * `php.*` — entrada e saída padrão do PHP
+   * `file` — acesso padrão a arquivos
+   * `http` — acesso a recursos remotos via HTTP
+   * `ftp` — acesso a recursos remotos via FTP
+   * `compress.zlib` — acesso a streams de dados comprimidos usando a biblioteca de compressão zlib.
+* stream filters - extensões que podem ser "instaladas" por cima de uma existente para formar cadeias de filtros que agem conjuntamente em um stream de dados
+   * `string.rot13` — codifica o stream de dados usando o algoritmo ROT-13
+   * `string.toupper` — converte strings para maiúsculas
+   * `string.tolower` — converte strings para minúsculas
+   * `string.strip_tags` — remove tags XML de um stream
+   * `convert.*` — uma família de filtros que converte a partir de, e para, codificação base64
+   * `mcrypt.*` — uma família de filtros que criptografa e descriptografa dados de acordo com múltiplos algoritmos
+   * `zlib.*` — uma família de filtros que comprimem e descomprimem dados usando a biblioteca de compressão zlib
 
-### Components
+
+* * *
+
+### Componentes
 
 
-* file wrapper
-* one or two pipe-lines
-* an optional context
-* metadata about the stream
-* Functions
+* invólucro de arquivos (file wrapper)
+* um ou mais pipelines
+* um contexto opcional
+* metadados relacionados ao stream
+* Funções
    * `array stream_get_meta_data ( resource $stream )`
    * `resource stream_context_create ([ array $options [, array $params ]] )`
 
 
-* * * 
+* * *
 
-### Stream Functions
+### Funções de Stream {#funcoes_de_stream}
 
 
 * `resource stream_socket_server ( string $local_socket [, int &$errno [, string &$errstr [, int $flags [, resource $context]]]] )`
@@ -186,7 +186,7 @@ Note that the results of a call to any of these functions will be cached, so tha
 * `int stream_select ( array &$read , array &$write , array &$except , int $tv_sec [, int $tv_usec = 0 ] )`
 
 
-* * * 
+* * *
 
 ### Sockets
 
@@ -196,11 +196,11 @@ $fp = fsockopen("example.preinheimer.com", 80, $errno, $errstr, 30)
 {% endhighlight %}
 
 
-* * * 
+* * *
 
-## Contexts
+## Contextos
 
-<http://php.net/manual/en/context.php>
+<http://php.net/manual/pt_BR/context.php>
 
 * `resource stream_context_create ([ array $options [, array $params ]] )`
 * `bool stream_context_set_option ( resource $stream_or_context , string $wrapper , string $option , mixed $value )`
