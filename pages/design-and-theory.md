@@ -71,19 +71,17 @@ description: ""
 
 ## Factory (Fabrica)
 
-
-* is used to provide a common interface to a series of classes with identical functionality but different internals (think data storage, varying shipping systems, payment processing)
-* The “factory” provides an instance of the appropriate class
+* é utilizada para fornecer uma interface comum para uma série de classes com funcionalidades idênticas mas internamente diferentes
+* A "fábrica" fornece uma instância apropriada da classe
 
 
 * * *
 
 ## Singleton
 
-
-* to ensure that you have only one instance of a given class at a time
-* myriad of circumstances; resource connections (database, file, external) most notably
-* Advised to be avoided lately
+* para garantir que você tenha apenas uma instância de uma determinada classe de cada vez
+* infinidade de circunstâncias; conexões de recursos (banco de dados, arquivo, externos) especialmente
+* ultimamente é aconselhavel evita-lo
 
 
 * * *
