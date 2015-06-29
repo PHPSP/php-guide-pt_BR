@@ -88,8 +88,7 @@ description: ""
 
 ## Registry
 
-
-An extension of the Singleton Pattern, that allows for differing functionality based on some input data
+Uma extensão do padrão Singleton, que permite funcionalidades diferentes com base em alguns dados de entrada
 
 
 * * *
