@@ -104,5 +104,5 @@ Encapsula uma fonte de dados, permitindo que o código externo se concentre na u
 
 
 * Model-View-Controller
-* Complex pattern, the user initiates an action via the controller, which interfaces with the model, finally the view is called which takes care of dealing with the user interface
-* allows for modularity in code
+* Um padrão complexo, o usuário inicia uma ação através do "Controller", que faz interface com o modelo, e finalmente a visualização é chamada, cuidando de lidar com a interface grafica do usuário
+* permite a modularidade no código
