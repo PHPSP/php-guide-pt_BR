@@ -81,7 +81,7 @@ description: ""
 
 * para garantir que você tenha apenas uma instância de uma determinada classe de cada vez
 * infinidade de circunstâncias; conexões de recursos (banco de dados, arquivo, externos) especialmente
-* ultimamente é aconselhavel evita-lo
+* ultimamente é aconselhável evita-lo
 
 
 * * *
@@ -104,5 +104,5 @@ Encapsula uma fonte de dados, permitindo que o código externo se concentre na u
 
 
 * Model-View-Controller
-* Um padrão complexo, o usuário inicia uma ação através do "Controller", que faz interface com o modelo, e finalmente a visualização é chamada, cuidando de lidar com a interface grafica do usuário
+* Um padrão complexo, o usuário inicia uma ação através do "Controller", que faz interface com o modelo, e finalmente a visualização é chamada, cuidando de lidar com a interface gráfica do usuário
 * permite a modularidade no código
