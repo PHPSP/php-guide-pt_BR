@@ -95,8 +95,7 @@ Uma extensão do padrão Singleton, que permite funcionalidades diferentes com b
 
 ## Active Record
 
-
-Encapsulates a data source, allowing external code to concentrate on using the data while the active record pattern provides a consistent interface, hiding the work that goes into iterating over records, making changes etc.
+Encapsula uma fonte de dados, permitindo que o código externo se concentre na utilização dos dados enquanto o padrão "Active Record" fornece uma interface consistente, ocultando o trabalho de iteração sobre registros, realização de mudanças, etc.
 
 
 * * *
