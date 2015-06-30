@@ -53,9 +53,9 @@ description: ""
 ## Reutilização de Código
 
 
-* Nos solucionamos os mesmos problemas todos os dias
-* Nos solucionamos os mesmos problemas que nossos vizinhos todos os dias
-* Nos solucionamos os mesmos problemas a cada projetos
+* Nós solucionamos os mesmos problemas todos os dias
+* Nós solucionamos os mesmos problemas que nossos vizinhos todos os dias
+* Nós solucionamos os mesmos problemas a cada projetos
 * Reutilização de Código permite a redução no tempo de desenvolvimento enquanto aumenta a qualidade do código
 
 * * *
