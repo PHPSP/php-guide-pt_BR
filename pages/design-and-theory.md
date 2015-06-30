@@ -69,7 +69,7 @@ description: ""
 
 * * *
 
-## Factory (Fabrica)
+## Factory (Fábrica)
 
 * é utilizada para fornecer uma interface comum para uma série de classes com funcionalidades idênticas mas internamente diferentes
 * A "fábrica" fornece uma instância apropriada da classe
