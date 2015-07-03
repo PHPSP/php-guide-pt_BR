@@ -55,7 +55,7 @@ description: ""
 
 * Nós solucionamos os mesmos problemas todos os dias
 * Nós solucionamos os mesmos problemas que nossos vizinhos todos os dias
-* Nós solucionamos os mesmos problemas a cada projetos
+* Nós solucionamos os mesmos problemas em cada projeto
 * Reutilização de Código permite a redução no tempo de desenvolvimento enquanto aumenta a qualidade do código
 
 * * *
@@ -81,7 +81,7 @@ description: ""
 
 * para garantir que você tenha apenas uma instância de uma determinada classe de cada vez
 * infinidade de circunstâncias; conexões de recursos (banco de dados, arquivo, externos) especialmente
-* ultimamente é aconselhável evita-lo
+* hoje em dia é aconselhável evitá-lo
 
 
 * * *
