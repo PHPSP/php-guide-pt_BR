@@ -50,7 +50,7 @@ description: ""
 
 * * *
 
-## Reutilização de Código
+## Reutilização de Código {#reutilizacao-de-codigo}
 
 
 * Nós solucionamos os mesmos problemas todos os dias
@@ -60,7 +60,7 @@ description: ""
 
 * * *
 
-## Design Patterns (Padrões de Projeto)
+## Design Patterns (Padrões de Projeto) {#design-patterns}
 
 
 * apresenta soluções bem definidas para problemas comuns
@@ -69,7 +69,7 @@ description: ""
 
 * * *
 
-## Factory (Fábrica)
+## Factory (Fábrica) {#factory}
 
 * é utilizada para fornecer uma interface comum para uma série de classes com funcionalidades idênticas mas internamente diferentes
 * A "fábrica" fornece uma instância apropriada da classe
