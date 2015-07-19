@@ -1,6 +1,6 @@
----
+﻿---
 layout: page
-title: "Php Basics"
+title: "PHP Básico"
 description: ""
 ---
 {% include JB/setup %}
