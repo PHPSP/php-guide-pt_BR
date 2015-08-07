@@ -25,8 +25,7 @@ description: ""
 * "Com grandes poderes vem grandes responsabilidades" (yeah)
 * Defense in Depth - planeje falhas; aplicações permanecem mais resistentes com o tempo;
 * Princípio do Privilégio Mínimo
-* Termos: Validação vs "Escapar" 
-   * Validation or Filtering is the process by which you subject data to a series of rules, either it passes (validates) or does not
+* Termos: Validação vs "Escapar"
    * Validação ou Filtragem é o processo pelo qual você sujeita um dado a uma série de regras, este dado passará (será válido) ou não
    * "Escapar" - do inglês Escape - é o processo pelo qual você prepara um dado para um recurso específico, "escapando" algumas partes do dado para evitar confusão entre o que são instruções ou dados
 
@@ -39,7 +38,7 @@ description: ""
 Uma das três coisas pode ser dita sobre dados recebidos:
 
 * Ele é válido, o usuário enviou o dado que você quer, no formato em que você deseja
-* Ele é inválido porque o usuário não seguiu ou entendeu as regras sobre o dado que você solicitou (i.e. Número telefonico mal formatado)
+* Ele é inválido porque o usuário não seguiu ou entendeu as regras sobre o dado que você solicitou (i.e. Número telefônico mal formatado)
 * Ele é inválido porque o usuário está tentando comprometer seu sistema
 
 * Dados vindos do usuário final não podem ser confiados
@@ -61,7 +60,7 @@ Uma das três coisas pode ser dita sobre dados recebidos:
 * `ctype_lower` - Verifica caracteres em caixa baixa (letras minúsculas)
 * `ctype_print` - Verifica por caracteres possíveis de serem impressos
 * `ctype_punct` - Verifica por quaisquer caracteres que possam ser impressos, que não sejam espaço em branco ou alfanumérico
-* `ctype_space` - Verifica caracteres de espaço de em branco
+* `ctype_space` - Verifica caracteres de espaço em branco
 * `ctype_upper` - Verifica caracteres em caixa alta (letras maiúsculas)
 * `ctype_xdigit` - Verifica caracteres em hexadecimal
 
@@ -101,7 +100,7 @@ $string = stripslashes($string);
 ## Escapando (Escaping)
 
 
-* `string strip_tags ( string $str [, string $allowable_tags ] )` – Remove qualquer coisa que pareça com uma tag HTML de uma string
+* `string strip_tags ( string $str [, string $allowable_tags ] )` – Remove de uma string qualquer coisa que se pareça com uma tag HTML
 * `string htmlentities ( string $string [, int $quote_style = ENT_COMPAT [, string $charset [, bool $double_encode = true ]]] )` – Converte qualquer caractere que contenha uma entidade HTML específica
    * `ENT_COMPAT` - converte aspas duplas e não altera aspas simples
    * `ENT_QUOTES` - converte aspas duplas e simples
