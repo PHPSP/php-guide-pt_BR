@@ -7,7 +7,7 @@
 * [Escapando (Escaping)](pages/security.html#escapando-escaping)
 * [XSS](pages/security.html#xss)
 * [CSRF](pages/security.html#csrf)
-* [sessões](pages/security.html#sesses)
+* [Sessões](pages/security.html#sesses)
 * [Fixação de Sessões](pages/security.html#fixao-de-sesses)
 * [Espoliação de Sessão](pages/security.html#espoliao-de-sesso)
 * [Injeção de Comandos](pages/security.html#injeo-de-comandos)
