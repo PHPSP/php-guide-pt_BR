@@ -36,7 +36,7 @@ description: ""
 * são acessíveis como parte da própria classe
 * chamar propriedades estáticas usando a notação de objeto resultará em um notice
 * por padrão, métodos ou propriedades estáticos são considerados públicos
-* constantes de classes são públicas e acessíveis de todos escopos
+* constantes de classes são públicas e acessíveis de todos os escopos
 * constantes podem somente conter valores escalares
 * código muito mais limpo
 * significantemente mais rápidas do que aquelas declaradas com define()
@@ -57,7 +57,7 @@ description: ""
 
 ## Instanceof
 
-Permite inspecionar todas classes de seu objeto, assim como quaisquer interfaces
+Permite inspecionar todas as classes de seu objeto, assim como quaisquer interfaces
 
 
 * * *
@@ -81,7 +81,7 @@ $a = new friend;
 
 * <http://php.net/manual/pt_BR/language.oop5.magic.php>
 * `__construct()`
-* `__destruct()` - Uma destruição ocorre quando não existem mais referências ao objeto, e isto pode não ocorrer necessariamente quando você espera que ocorra ou mesmo quando você gostaria que ocorresse.
+* `__destruct()` - Uma destruição ocorre quando não existem mais referências ao objeto, e isto pode não ocorrer quando você espera ou gostaria que ocorresse.
 * `__toString()`
 * `__sleep()`
 * `__wakeup()`
@@ -96,11 +96,11 @@ $a = new friend;
 
 
 * Método unificado de tratamento de erros
-* Torna o tratamento adequado de erros possível
-* Pode ser realizado com blocos try catch or definindo um único tratador de erros uma vez
+* Torna possível o tratamento adequado de erros
+* Pode ser realizado com blocos try catch ou definindo um único tratador de erros uma vez
 * Blocos try catch tomam precedência se o código que gera o erro está dentro destes
 * São objetos, criados (ou "lançados") quando um erro ocorre
-* Todas exceções não tratadas são fatais
+* Todas as exceções não tratadas são fatais
 * A porção `catch()` requer que digamos o tipo da exceção
 * `callback set_exception_handler ( callback $exception_handler )`
 * `bool restore_exception_handler ( void )`
