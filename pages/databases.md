@@ -36,8 +36,8 @@ description: ""
 * Parâmetros vinculados (Bound Parameters)
 * Um parâmetro vinculado permite guardar uma consulta no servidor MySQL, com apenas os dados iterativos sendo repetidamente enviados ao servidor, e integrados na consulta para execução.
 * Resultados vinculados (Bound Results)
-* Um resultado vinculado permite utilizar arrays indexados ou associativos para obter valores dos conjuntos de resultado, para isso, vinculando variáveis PHP aos campos obtidos correspondentes, e então utilizar essas variáveis como necessário
-* Depois que uma consulta já foi preparada e executada, é possível vincular variáveis aos campos obtiveis utilizando $stmt->bind_result.
+* Um resultado vinculado permite utilizar arrays indexados ou associativos para obter valores dos conjuntos de resultado, para isso, vincula-se variáveis PHP aos campos obtidos correspondentes, e então utiliza-se essas variáveis como for necessário
+* Depois que uma consulta já foi preparada e executada, é possível vincular variáveis aos campos obtidos, utilizando $stmt->bind_result.
 
 {% highlight php5 linenos %}
 <?php
@@ -130,7 +130,7 @@ PDOStatement->nextRowset()
 {% endhighlight %}
 
 `array PDO::errorInfo ( void )`
-* 0 - Código de erro SQLSTATE (um identificador de cinco caracteres alfanuméricos definidos pelo padrão do ANSI SQL)
+* 0 - Código de erro SQLSTATE (um identificador de cinco caracteres alfanuméricos definido pelo padrão do ANSI SQL)
 * 1 - Código de erro especifico de erro de driver.
 * 2 - Mensagem especifica de erro de driver.
 
@@ -142,8 +142,8 @@ PDOStatement->nextRowset()
 
 
 * é um banco de dados, sem o banco de dados
-* ao invés de usar um programa separado para persistentemente manter o banco de dados, o SQLite requisita de biblioteca C que comprimem o banco de dados para que este seja incluído em qualquer programa que deseje utiliza-lo
+* ao invés de usar um programa separado para persistentemente manter o banco de dados, o SQLite requisita de bibliotecas C que comprimem o banco de dados para que este seja incluído em qualquer programa que deseje utiliza-lo
 * foi incluído na versão 5 do PHP por padrão
 * É rápido, grátis, e possui uma boa licença
-* Com exceção de não precisar conectar em um servidor remoto ou processo, o SQLite não é diferente dos outros sistemas de banco de dados
+* Com exceção de não precisar conectar em um servidor ou processo remoto, o SQLite não é diferente dos outros sistemas de banco de dados
 * categoriza o dado em textual e numérico
