@@ -1,6 +1,6 @@
 * [Fatos](pages/databases.html#fatos)
-* [Analisando Consultas](pages/databases.html#analisando_consultas)
-* [Declarações Preparadas](pages/databases.html#declaraes_preparadas)
+* [Analisando Consultas](pages/databases.html#analisando-consultas)
+* [Declarações Preparadas](pages/databases.html#declaraes-preparadas-prepared-statements)
 * [Mysqli](pages/databases.html#mysqli)
 * [Transações](pages/databases.html#transaes)
 * [PDO](pages/databases.html#pdo)
