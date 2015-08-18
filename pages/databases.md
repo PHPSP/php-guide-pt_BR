@@ -12,9 +12,9 @@ description: ""
 
 ## Fatos
 
-* Versões recentes do PHP não acompanham mais com a extensão do MySQL embutida, essa deve ser habilitada na hora da configuração.
+* Versões recentes do PHP  não (mais) vêm acompanhadas com a extensão do MySQL embutida.
 * Agora há duas versões de extensões do MySQL disponíveis, MySQL e MySQLi
-* A extensão MySQLi possui muitas das funcionalidades mais recentes do MySQL, como declarações preparadas
+* A extensão MySQLi torna algumas das mais recentes funcionalidades do MySQL disponíveis, como declarações preparadas
 
 
 * * *
@@ -78,9 +78,9 @@ mysqli_close($link);
 
 * * *
 
-## Transactions
+## Transações (Transactions)
 
-Permite juntar (merge) diversas consultas em uma operação atômica, ou TODAS executam com sucesso, ou nenhuma irá
+Permite juntar (merge) diversas consultas em uma operação atômica, ou TODAS executam com sucesso, ou nenhuma executara
 
 {% highlight mysql linenos %}
 BEGIN TRANSACTION #name;
@@ -131,8 +131,8 @@ PDOStatement->nextRowset()
 
 `array PDO::errorInfo ( void )`
 * 0 - Código de erro SQLSTATE (um identificador de cinco caracteres alfanuméricos definido pelo padrão do ANSI SQL)
-* 1 - Código de erro especifico de erro de driver.
-* 2 - Mensagem especifica de erro de driver.
+* 1 - Código de erro especifico indicado pelo driver.
+* 2 - Mensagem especifica de erro indicada pelo driver.
 
 
 
@@ -142,7 +142,7 @@ PDOStatement->nextRowset()
 
 
 * é um banco de dados, sem o banco de dados
-* ao invés de usar um programa separado para persistentemente manter o banco de dados, o SQLite requisita de bibliotecas C que comprimem o banco de dados para que este seja incluído em qualquer programa que deseje utiliza-lo
+* em vez de usar um programa separado para persistentemente manter o banco de dados, o SQLite requisita de bibliotecas C que compreende o banco de dados para que este seja incluído em qualquer programa que deseje utiliza-lo
 * foi incluído na versão 5 do PHP por padrão
 * É rápido, grátis, e possui uma boa licença
 * Com exceção de não precisar conectar em um servidor ou processo remoto, o SQLite não é diferente dos outros sistemas de banco de dados
