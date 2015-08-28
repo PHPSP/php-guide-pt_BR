@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Databases"
+title: "Banco de dados"
 description: ""
 ---
 {% include JB/setup %}
@@ -10,36 +10,34 @@ description: ""
 
 * * *
 
-## Facts
+## Fatos
 
-
-* Recent versions of PHP no longer ship with the MySQL extension built in, you must enable it at configure time.
-* We now have two versions of the MySQL extension available, MySQL and MySQLi
-* The MySQLi extension makes some of MySQL’s more recent functionality available, things like prepared statements
+* Versões recentes do PHP  não (mais) vêm acompanhadas com a extensão do MySQL embutida.
+* Agora há duas versões de extensões do MySQL disponíveis, MySQL e MySQLi
+* A extensão MySQLi torna algumas das mais recentes funcionalidades do MySQL disponíveis, como declarações preparadas
 
 
 * * *
 
-## Analyzing Queries
+## Analisando Consultas
 
 
-* `EXPLAIN` EVERYTHING!
+* `EXPLAIN` TUDO!
 * `EXPLAIN SELECT * FROM 07_amazon_monitor_rank_results WHERE asin = '0672324547'`;
 
 
 * * *
 
-## Prepared Statements
+## Declarações preparadas (Prepared Statements)
 
-
-* allow you to increase speed of repeated queries, and isolate data from command
-* First you Prepare the statement, then you bind parameters to it, then you execute it
-* <http://php.net/manual/en/function.mysqliprepare.php>
-* Bound parameters
-* The bound-parameter variant allows you to store a query on the MySQL server, with only the iterative data being repeatedly sent to the server, and integrated into the query for execution. 
-* Bound results
-* The bound-result variant allows you to use sometimes-unwieldy indexed or associative arrays to pull values from result sets by binding PHP variables to corresponding retrieved fields, and then use those variables as necessary
-* After a query has been prepared and executed, you can bind variables to the retrieved fields by using $stmt->bind_result.
+* Permite a você aumentar a velocidade de consultas repetitivas, e isolar dados do comando
+* Primeiro prepara-se a declaração, então vincula-se parâmetros a ela, e então a executa
+* <http://php.net/manual/pt_BR/mysqli.prepare.php>
+* Parâmetros vinculados (Bound Parameters)
+* Um parâmetro vinculado permite guardar uma consulta no servidor MySQL, com apenas os dados iterativos sendo repetidamente enviados ao servidor, e integrados na consulta para execução.
+* Resultados vinculados (Bound Results)
+* Um resultado vinculado permite utilizar arrays indexados ou associativos para obter valores dos conjuntos de resultado, para isso, vincula-se variáveis PHP aos campos obtidos correspondentes, e então utiliza-se essas variáveis como for necessário
+* Depois que uma consulta já foi preparada e executada, é possível vincular variáveis aos campos obtidos, utilizando $stmt->bind_result.
 
 {% highlight php5 linenos %}
 <?php
@@ -80,10 +78,9 @@ mysqli_close($link);
 
 * * *
 
-## Transactions
+## Transações (Transactions)
 
-
-Allow you to merge multiple queries into one atomic operation, either they ALL execute successfully, or none do
+Permite juntar (merge) diversas consultas em uma operação atômica, ou TODAS executam com sucesso, ou nenhuma executara
 
 {% highlight mysql linenos %}
 BEGIN TRANSACTION #name;
@@ -97,8 +94,8 @@ COMMIT;
 
 
 * [PHP Data Objects](http://php.net/pdo)
-* consistent object oriented method to interact with various databases
-* database specific PDO driver must also be installed
+* Método consistente orientado a objetos para interagir com diversos banco de dados
+* Driver PDO especifico do banco de dados deve ser instalado
 
 {% highlight php5 linenos %}
 <?php
@@ -107,7 +104,7 @@ foreach ($pdoConnection->query("SELECT * FROM users") AS $user) { echo $user['id
 {% endhighlight %}
 
 
-Prepared statements
+Declarações Preparadas
 
 
 {% highlight php5 linenos %}
@@ -120,7 +117,7 @@ $statement->execute(array(':tid' => 100, ':userid' => 13));
 $userBPosts = $statement->fetchAll();
 {% endhighlight %}
 
-closing connection
+fechando conexão
 
 {% highlight php5 linenos %}
 <?php
@@ -133,9 +130,9 @@ PDOStatement->nextRowset()
 {% endhighlight %}
 
 `array PDO::errorInfo ( void )`
-* 0 - SQLSTATE error code (a five characters alphanumeric identifier defined in the ANSI SQL standard)
-* 1 - Driver-specific error code.
-* 2 - Driver-specific error message.
+* 0 - Código de erro SQLSTATE (um identificador de cinco caracteres alfanuméricos definido pelo padrão do ANSI SQL)
+* 1 - Código de erro especifico indicado pelo driver.
+* 2 - Mensagem especifica de erro indicada pelo driver.
 
 
 
@@ -144,9 +141,9 @@ PDOStatement->nextRowset()
 ## SQLite
 
 
-* is a database, without the database
-* rather than using a separate program to persistently maintain the database, SQLite on the other hand requires the C libraries that comprise the DB to be built into whatever program would like to use them
-* was built into PHP by default as of PHP5, which is cool, some twits turn it off, which isn’t
-* It’s fast, free, and has nice licensing terms
-* Apart from not needing to connect to a remote server or process, SQLite is no different from other database systems
-* catagorizes data into textual and numeric
+* é um banco de dados, sem o banco de dados
+* em vez de usar um programa separado para persistentemente manter o banco de dados, o SQLite requisita de bibliotecas C que compreende o banco de dados para que este seja incluído em qualquer programa que deseje utiliza-lo
+* foi incluído na versão 5 do PHP por padrão
+* É rápido, grátis, e possui uma boa licença
+* Com exceção de não precisar conectar em um servidor ou processo remoto, o SQLite não é diferente dos outros sistemas de banco de dados
+* categoriza o dado em textual e numérico
